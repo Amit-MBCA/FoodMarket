@@ -16,5 +16,10 @@ class LoginActivity : AppCompatActivity() {
             val it=Intent(this,SigninActivity::class.java)
             startActivity(it)
         }
+        binding.loginButton.setOnClickListener {
+            val it=Intent(this,ChooseLocationActivity::class.java)
+            startActivity(it)
+            finish()
+        }
     }
 }
