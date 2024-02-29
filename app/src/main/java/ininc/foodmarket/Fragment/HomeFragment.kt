@@ -9,10 +9,12 @@ import android.widget.Toast
 //import androidx.appcompat.resources.R
 //import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import ininc.foodmarket.R
+import ininc.foodmarket.adapter.PopularAdapter
 
 import ininc.foodmarket.databinding.FragmentHomeBinding
 
@@ -64,5 +66,12 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(),itemMessage,Toast.LENGTH_LONG).show()
             }
         })
+        val foodNames= listOf("Burger","Sandwich","Momos","item")
+        val price= listOf("$5","$7","$8","$10")
+        val popularFoodiImages= listOf(R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg)
+        val adapter=PopularAdapter(foodNames,price,popularFoodiImages)
+        binding.idpopularrecyclerview.layoutManager=LinearLayoutManager(requireContext())
+        binding.idpopularrecyclerview.adapter=adapter
+        
     }
 }
