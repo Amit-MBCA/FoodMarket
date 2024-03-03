@@ -17,7 +17,8 @@ import ininc.foodmarket.R
 import ininc.foodmarket.adapter.PopularAdapter
 
 import ininc.foodmarket.databinding.FragmentHomeBinding
-
+import ininc.foodmarket.databinding.FragmentMenuBottomSheetBinding
+import ininc.foodmarket.menuBottomSheetFragment
 
 
 class HomeFragment : Fragment() {
@@ -40,6 +41,12 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding=FragmentHomeBinding.inflate(inflater,container,false)
+
+        binding.viewAllMenu.setOnClickListener {
+            val bottomSheetDialog = menuBottomSheetFragment()
+            bottomSheetDialog.show(parentFragmentManager,"test")
+
+        }
         return binding.root
     }
 
