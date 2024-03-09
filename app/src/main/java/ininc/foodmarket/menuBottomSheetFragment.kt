@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import ininc.foodmarket.adapter.CartAdapter
+//import ininc.foodmarket.adapter.CartAdapter
+import ininc.foodmarket.adapter.MenuAdapter
 import ininc.foodmarket.databinding.FragmentMenuBottomSheetBinding
 
 class menuBottomSheetFragment : BottomSheetDialogFragment() {
@@ -30,7 +31,7 @@ class menuBottomSheetFragment : BottomSheetDialogFragment() {
         val menuItemPrice= listOf("$5","$4","$6","$5","$4","$6")
         val menuImages= listOf(R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg)
 //        val quantity=listOf(1,2,3,4,5,6)
-        val adapter= CartAdapter(ArrayList(menuFoodNames),ArrayList(menuItemPrice),ArrayList(menuImages))
+        val adapter= MenuAdapter(ArrayList(menuFoodNames),ArrayList(menuItemPrice),ArrayList(menuImages),requireContext())
         binding.idMenuRecyclerView.layoutManager= LinearLayoutManager(requireContext())
         binding.idMenuRecyclerView.adapter=adapter
         return binding.root

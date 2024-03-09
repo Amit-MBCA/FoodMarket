@@ -1,11 +1,14 @@
 package ininc.foodmarket.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import ininc.foodmarket.CongratsBottomSheet
+import ininc.foodmarket.PayOutActivity
 import ininc.foodmarket.R
 import ininc.foodmarket.adapter.CartAdapter
 import ininc.foodmarket.databinding.FragmentCartBinding
@@ -31,6 +34,11 @@ class CartFragment : Fragment() {
         val adapter=CartAdapter(ArrayList(cartFoodNames),ArrayList(cartItemPrice),ArrayList(cartImages))
         binding.idcartrecyclerview.layoutManager=LinearLayoutManager(requireContext())
         binding.idcartrecyclerview.adapter=adapter
+        binding.idproceedbtn.setOnClickListener {
+            val intent=Intent(requireContext(),PayOutActivity::class.java)
+            startActivity(intent)
+        }
+
 
         // Inflate the layout for this fragment
         return binding.root
