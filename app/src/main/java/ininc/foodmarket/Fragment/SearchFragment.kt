@@ -19,7 +19,7 @@ class SearchFragment : Fragment() {
 
 
     private val originalMenuFoodName=listOf("Pizza","Sandwich","French Fries","Kimchi","Fried Rice","Momos","Burger")
-    private val originalMenuItemPrice= listOf("$5","$4","$6","$5","$4","$6","$2")
+    private val originalMenuItemPrice= listOf("₹199","₹40","₹60","₹150","₹40","₹60","₹35")
     private val originalMenuImages= listOf(R.drawable.pizzaimg,R.drawable.sandwichimg,R.drawable.frenchfriesimg,R.drawable.kimchiimg,R.drawable.friedriceimg,R.drawable.momosimg,R.drawable.burgerimg)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

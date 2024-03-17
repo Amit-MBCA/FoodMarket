@@ -18,7 +18,7 @@ class ChooseLocationActivity : AppCompatActivity() {
         val autoCompleteTextView=binding.listoflocation
         autoCompleteTextView.setAdapter(adapter)
 
-        binding.textView4.setOnClickListener {
+        binding.iddesignedbytv.setOnClickListener {
             val it=Intent(this,MainActivity::class.java)
             startActivity(it)
         }

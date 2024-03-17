@@ -43,6 +43,7 @@
                 android:layout_height="20dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/addtocardshape"
+                android:fontFamily="@font/allerta"
                 android:gravity="center"
                 android:text="Add To Cart"
                 android:textAlignment="gravity"
@@ -58,13 +59,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/allerta"
                 android:text="$5"
                 android:textColor="@color/textColor"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.834"
-                app:layout_constraintStart_toEndOf="@+id/idfoodnamepopular"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -72,6 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:fontFamily="@font/allerta"
                 android:text="FoodName"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/idpopularfoodimage"

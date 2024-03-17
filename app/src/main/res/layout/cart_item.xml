@@ -40,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:fontFamily="@font/allerta"
                 android:text="Burger"
                 app:layout_constraintBottom_toTopOf="@+id/idcartprice"
                 app:layout_constraintStart_toEndOf="@+id/idCartItemImage"
@@ -50,42 +51,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:fontFamily="@font/allerta"
                 android:text="$35"
+                android:textColor="@color/textColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/idCartItemImage"
                 app:layout_constraintTop_toBottomOf="@+id/idcartfoodname" />
 
             <ImageButton
                 android:id="@+id/idMinusButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/addtocardshape"
+                android:background="@color/white"
                 android:padding="2dp"
                 app:layout_constraintBottom_toBottomOf="@+id/idQuanttv"
                 app:layout_constraintEnd_toStartOf="@+id/idQuanttv"
                 app:layout_constraintTop_toTopOf="@+id/idQuanttv"
-                app:srcCompat="@drawable/mail_24" />
+                app:srcCompat="@drawable/minusicon" />
 
             <ImageButton
                 android:id="@+id/idPlusButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
-                android:background="@drawable/addtocardshape"
+                android:background="@color/white"
                 android:padding="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/idQuanttv"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/mail_24" />
+                app:srcCompat="@drawable/plusicon" />
 
             <TextView
                 android:id="@+id/idQuanttv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:fontFamily="@font/allerta"
                 android:text="1"
                 app:layout_constraintBottom_toBottomOf="@+id/idPlusButton"
                 app:layout_constraintStart_toEndOf="@+id/idMinusButton"
@@ -93,13 +97,16 @@
 
             <ImageButton
                 android:id="@+id/idTrashButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/idPlusButton"
                 app:layout_constraintStart_toStartOf="@+id/idMinusButton"
                 app:layout_constraintTop_toBottomOf="@+id/idQuanttv"
-                app:srcCompat="@drawable/mail_24" />
+                app:srcCompat="@drawable/deleteicon1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

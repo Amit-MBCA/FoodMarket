@@ -28,7 +28,7 @@ class CartFragment : Fragment() {
     ): View? {
         binding=FragmentCartBinding.inflate(inflater,container,false)
         val cartFoodNames=listOf("Pizza","Sandwich","French Fries","Kimchi","Fried Rice","Momos","Burger")
-        val cartItemPrice= listOf("$5","$4","$6","$5","$4","$6","$2")
+        val cartItemPrice= listOf("₹199","₹40","₹60","₹150","₹40","₹60","₹35")
         val cartImages= listOf(R.drawable.pizzaimg,R.drawable.sandwichimg,R.drawable.frenchfriesimg,R.drawable.kimchiimg,R.drawable.friedriceimg,R.drawable.momosimg,R.drawable.burgerimg)
 
 

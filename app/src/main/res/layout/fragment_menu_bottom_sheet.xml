@@ -12,17 +12,19 @@
         android:id="@+id/idbackbutton"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/mail_24"
-        android:background="@color/text_shadow"
-        />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:src="@drawable/backbtnicon" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/allerta"
         android:gravity="center"
         android:text="Menu"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor"
         android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView

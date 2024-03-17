@@ -33,7 +33,7 @@ class HistoryFragment : Fragment() {
     private fun setUpRecyclerView() {
         val buyAgainFoodName=
             arrayListOf("Pizza","Sandwich","French Fries","Kimchi","Fried Rice","Momos","Burger")
-        val buyAgainFoodPrice= arrayListOf("$5","$4","$6","$5","$4","$6","$2")
+        val buyAgainFoodPrice= arrayListOf("₹199","₹40","₹60","₹150","₹40","₹60","₹35")
         val buyAgainFoodImage= arrayListOf(R.drawable.pizzaimg,R.drawable.sandwichimg,R.drawable.frenchfriesimg,R.drawable.kimchiimg,R.drawable.friedriceimg,R.drawable.momosimg,R.drawable.burgerimg)
 
 
