@@ -16,9 +16,11 @@ class SearchFragment : Fragment() {
 
     private lateinit var binding:FragmentSearchBinding
     private lateinit var adapter:MenuAdapter
-    private val originalMenuFoodName=listOf("Burger","Sandwich","Momos","Item","Sandwich","Momos")
-    private val originalMenuItemPrice= listOf("$5","$4","$6","$5","$4","$6")
-    private val originalMenuImages= listOf(R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg)
+
+
+    private val originalMenuFoodName=listOf("Pizza","Sandwich","French Fries","Kimchi","Fried Rice","Momos","Burger")
+    private val originalMenuItemPrice= listOf("$5","$4","$6","$5","$4","$6","$2")
+    private val originalMenuImages= listOf(R.drawable.pizzaimg,R.drawable.sandwichimg,R.drawable.frenchfriesimg,R.drawable.kimchiimg,R.drawable.friedriceimg,R.drawable.momosimg,R.drawable.burgerimg)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

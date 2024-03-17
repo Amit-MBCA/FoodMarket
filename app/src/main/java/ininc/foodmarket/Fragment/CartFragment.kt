@@ -27,9 +27,11 @@ class CartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding=FragmentCartBinding.inflate(inflater,container,false)
-        val cartFoodNames=listOf("Burger","Sandwich","Momos","Item","Sandwich","Momos")
-        val cartItemPrice= listOf("$5","$4","$6","$5","$4","$6")
-        val cartImages= listOf(R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg)
+        val cartFoodNames=listOf("Pizza","Sandwich","French Fries","Kimchi","Fried Rice","Momos","Burger")
+        val cartItemPrice= listOf("$5","$4","$6","$5","$4","$6","$2")
+        val cartImages= listOf(R.drawable.pizzaimg,R.drawable.sandwichimg,R.drawable.frenchfriesimg,R.drawable.kimchiimg,R.drawable.friedriceimg,R.drawable.momosimg,R.drawable.burgerimg)
+
+
 //        val quantity=listOf(1,2,3,4,5,6)
         val adapter=CartAdapter(ArrayList(cartFoodNames),ArrayList(cartItemPrice),ArrayList(cartImages))
         binding.idcartrecyclerview.layoutManager=LinearLayoutManager(requireContext())

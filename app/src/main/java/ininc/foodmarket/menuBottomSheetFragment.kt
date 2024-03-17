@@ -27,9 +27,9 @@ class menuBottomSheetFragment : BottomSheetDialogFragment() {
         binding.idbackbutton.setOnClickListener {
             dismiss()
         }
-        val menuFoodNames=listOf("Burger","Sandwich","Momos","Item","Sandwich","Momos")
-        val menuItemPrice= listOf("$5","$4","$6","$5","$4","$6")
-        val menuImages= listOf(R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg,R.drawable.logowithbg)
+        val menuFoodNames=listOf("Pizza","Sandwich","French Fries","Kimchi","Fried Rice","Momos","Burger")
+        val menuItemPrice= listOf("$5","$4","$6","$5","$4","$6","$2")
+        val menuImages= listOf(R.drawable.pizzaimg,R.drawable.sandwichimg,R.drawable.frenchfriesimg,R.drawable.kimchiimg,R.drawable.friedriceimg,R.drawable.momosimg,R.drawable.burgerimg)
 //        val quantity=listOf(1,2,3,4,5,6)
         val adapter= MenuAdapter(ArrayList(menuFoodNames),ArrayList(menuItemPrice),ArrayList(menuImages),requireContext())
         binding.idMenuRecyclerView.layoutManager= LinearLayoutManager(requireContext())
