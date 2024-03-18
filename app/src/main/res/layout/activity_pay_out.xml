@@ -69,7 +69,8 @@
                 android:background="@drawable/transparentshape"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Name" />
+                android:text="Vinay Kumar"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,7 +104,8 @@
                 android:ems="10"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="5dp"
-                android:text="VPO Dhillowal District Jind Tehsil Alewa State Haryana Country India" />
+                android:text="VPO Dhillowal District Jind Tehsil Alewa State Haryana Country India"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -134,7 +136,8 @@
                 android:background="@drawable/transparentshape"
                 android:ems="10"
                 android:inputType="phone"
-                android:text="1234567890" />
+                android:text="+91 9887789793"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -163,7 +166,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/logowithbg" />
+                app:srcCompat="@drawable/codicon" />
 
         </LinearLayout>
 
@@ -194,12 +197,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/transparentshape"
+                android:editable="false"
                 android:ems="10"
                 android:gravity="end"
                 android:inputType="none"
                 android:paddingEnd="32dp"
-                android:text="$45"
-                android:textColor="@color/black"
+                android:text="₹450"
+                android:textColor="@color/primaryColor"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
