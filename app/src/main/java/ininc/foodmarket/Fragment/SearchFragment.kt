@@ -33,10 +33,10 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding=FragmentSearchBinding.inflate(inflater,container,false)
-        adapter= MenuAdapter(filterMenuFoodNames,filterMenuFoodPrices,filterMenuFoodImages,requireContext())
-        binding.idMenuRecylerView.layoutManager=LinearLayoutManager(requireContext())
-        binding.idMenuRecylerView.adapter=adapter
+//        binding=FragmentSearchBinding.inflate(inflater,container,false)
+//        adapter= MenuAdapter(filterMenuFoodNames,filterMenuFoodPrices,filterMenuFoodImages,requireContext())
+//        binding.idMenuRecylerView.layoutManager=LinearLayoutManager(requireContext())
+//        binding.idMenuRecylerView.adapter=adapter
 
         //Setup for search view
         setupSearchView()

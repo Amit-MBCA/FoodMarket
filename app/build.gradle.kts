@@ -57,5 +57,6 @@ dependencies {
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
 //    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("com.github.jitpack:android-example:1.0.1")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
 }
