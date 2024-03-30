@@ -25,7 +25,6 @@ import ininc.foodmarket.adapter.MenuAdapter
 import ininc.foodmarket.adapter.PopularAdapter
 
 import ininc.foodmarket.databinding.FragmentHomeBinding
-import ininc.foodmarket.databinding.FragmentMenuBottomSheetBinding
 import ininc.foodmarket.menuBottomSheetFragment
 import ininc.foodmarket.model.MenuItem
 
@@ -53,6 +52,9 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding=FragmentHomeBinding.inflate(inflater,container,false)
 
+        binding.searchView.setQuery("",false)
+        binding.idpopularrecyclerview.requestFocus()
+//        binding.searchView.queryHint="What do you want to eat ?"
         binding.viewAllMenu.setOnClickListener {
             val bottomSheetDialog = menuBottomSheetFragment()
             bottomSheetDialog.show(parentFragmentManager,"test")

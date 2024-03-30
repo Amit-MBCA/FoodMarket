@@ -48,6 +48,12 @@ class CartAdapter(
         holder.bind(position)
     }
 
+    fun getUpdatedItemsQuantities(): MutableList<Int> {
+        val itemQuantity= mutableListOf<Int>()
+        itemQuantity.addAll(cartQuantity)
+        return itemQuantity
+    }
+
     inner class CartViewHolder(private val binding: CartItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
@@ -80,6 +86,7 @@ class CartAdapter(
         private fun decreaseButton(position: Int) {
             if (itemQuantities[position] > 1) {
                 itemQuantities[position]--
+                cartQuantity[position]= itemQuantities[position]
                 binding.idQuanttv.text = itemQuantities[position].toString()
             }
         }
@@ -87,6 +94,7 @@ class CartAdapter(
         private fun increaseButton(position: Int) {
             if (itemQuantities[position] < 10) {
                 itemQuantities[position]++
+                cartQuantity[position]= itemQuantities[position]
                 binding.idQuanttv.text = itemQuantities[position].toString()
             }
         }
@@ -140,7 +148,7 @@ class CartAdapter(
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+
                 }
 
             })

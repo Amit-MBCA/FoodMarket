@@ -2,20 +2,39 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Fragment.HomeFragment">
 
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/searchshape"
+        android:baselineAligned="false"
+        android:iconifiedByDefault="false"
+        android:queryBackground="@drawable/transparentshape"
+        android:queryHint="What do you want to eat ?"
+        android:searchIcon="@drawable/search_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/searchView">
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/image_slider"
@@ -46,46 +65,45 @@
         app:layout_constraintTop_toBottomOf="@+id/viewAllMenu"
         tools:listitem="@layout/popular_item" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView15"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:fontFamily="@font/allerta"-->
-<!--        android:text="Popular"-->
-<!--        android:textColor="@color/textColor"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/viewAllMenu" />-->
-
     <TextView
-        android:id="@+id/idfreshitemstv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/textviewshape"
-        android:elevation="5dp"
-        android:fontFamily="@font/allerta"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="Fresh Items"
-        android:textAlignment="gravity"
-        android:textColor="@color/primaryColor"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewAllMenu"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <TextView
-        android:id="@+id/viewAllMenu"
-        android:layout_width="0dp"
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/allerta"
+        android:text="Popular Items"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/idfreshitemstv"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="52dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:background="@drawable/textviewshape"-->
+    <!--        android:elevation="5dp"-->
+    <!--        android:fontFamily="@font/allerta"-->
+    <!--        android:gravity="center"-->
+    <!--        android:padding="5dp"-->
+    <!--        android:text="Fresh Items"-->
+    <!--        android:textAlignment="gravity"-->
+    <!--        android:textColor="@color/primaryColor"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/viewAllMenu"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/cardView" />-->
+
+    <TextView
+        android:id="@+id/viewAllMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/textviewshape"
         android:elevation="5dp"
         android:fontFamily="@font/allerta"
@@ -93,10 +111,9 @@
         android:padding="5dp"
         android:text="View Menu"
         android:textAlignment="gravity"
-        android:textColor="@color/textColor"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/idfreshitemstv"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        android:textColor="@color/primaryColor"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView15" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        currentFocus?.clearFocus()
+//        BottomNavigationView.FOCUS_BACKWARD =null
+        binding.bottomNavigationView.menu.getItem(2).isEnabled=false
         var navController=findNavController(R.id.fragmentContainerView3)
         var bottomNav=findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNav.setupWithNavController(navController)

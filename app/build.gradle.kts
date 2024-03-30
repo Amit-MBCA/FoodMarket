@@ -59,4 +59,6 @@ dependencies {
     implementation ("com.github.jitpack:android-example:1.0.1")
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
+    implementation ("com.google.android.material:material:1.11.0")
+
 }

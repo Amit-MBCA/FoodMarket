@@ -37,6 +37,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/idname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -45,7 +46,6 @@
                 android:ems="10"
                 android:fontFamily="@font/allerta"
                 android:inputType="text"
-                android:text="Name"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -71,6 +71,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/idaddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -81,7 +82,6 @@
                 android:fontFamily="@font/allerta"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="5dp"
-                android:text="Village Dhillowal Tehsil Alewa District Jind State Haryana Country India"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -109,6 +109,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/idemail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -117,7 +118,6 @@
                 android:ems="10"
                 android:fontFamily="@font/allerta"
                 android:inputType="text"
-                android:text="admin@gmail.com"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -144,6 +144,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/idphone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -152,7 +153,6 @@
                 android:ems="10"
                 android:fontFamily="@font/allerta"
                 android:inputType="phone"
-                android:text="1234567890"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
@@ -165,6 +165,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/idsaveinfobtn"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginLeft="8dp"
