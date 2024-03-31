@@ -34,6 +34,23 @@ class ProfileFragment : Fragment() {
         binding=FragmentProfileBinding.inflate(inflater,container,false)
 
         setUserData()
+        binding.idname.isEnabled=false
+        binding.idaddress.isEnabled=false
+        binding.idemail.isEnabled=false
+        binding.idphone.isEnabled=false
+
+
+        var isEnable=false
+        binding.ideditbtn.setOnClickListener {
+            isEnable = !isEnable
+            binding.idname.isEnabled=isEnable
+            binding.idaddress.isEnabled=isEnable
+            binding.idemail.isEnabled=isEnable
+            binding.idphone.isEnabled=isEnable
+            if (isEnable){
+                binding.idname.requestFocus()
+            }
+        }
         binding.idsaveinfobtn.setOnClickListener {
             val name=binding.idname.text.toString()
             val email=binding.idemail.text.toString()

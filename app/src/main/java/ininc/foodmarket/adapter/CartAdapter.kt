@@ -33,7 +33,7 @@ class CartAdapter(
         cartItemReference=database.reference.child("user").child(userId).child("CartItems")
     }
     companion object{
-        private var itemQuantities:IntArray= intArrayOf()
+        private var itemQuantities:IntArray = intArrayOf()
         private lateinit var cartItemReference:DatabaseReference
     }
 //    private val itemQuantities = IntArray(cartItems.size) { 1 }
@@ -100,12 +100,12 @@ class CartAdapter(
         }
 
         private fun deleteButton(position: Int) {
-              val positionRetrieve=position
-                getUniqueKeyAtPosition(positionRetrieve){uniqueKey ->
+              val positionRetrieve = position
+              getUniqueKeyAtPosition(positionRetrieve){ uniqueKey ->
                     if(uniqueKey!=null){
                         removeItem(position,uniqueKey)
                     }
-                }
+              }
 //            cartItems.removeAt(position)
 //            cartImages.removeAt(position)
 //            cartItemPrices.removeAt(position)
@@ -114,7 +114,7 @@ class CartAdapter(
         }
 
         private fun removeItem(position: Int, uniqueKey: String) {
-            if(uniqueKey!=null){
+            if(uniqueKey != null){
                 cartItemReference.child(uniqueKey).removeValue().addOnSuccessListener {
                     cartItems.removeAt(position)
                     cartImages.removeAt(position)
@@ -130,6 +130,9 @@ class CartAdapter(
                 }.addOnFailureListener {
                     Toast.makeText(context,"Failed to delete item",Toast.LENGTH_SHORT).show()
                 }
+            }
+            else{
+//                Toast.makeText(context,"Failed",Toast.LENGTH_SHORT).show()
             }
         }
 

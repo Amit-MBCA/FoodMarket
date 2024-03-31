@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,17 +10,65 @@
     android:background="@color/white"
     tools:context=".Fragment.ProfileFragment">
 
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/allerta"
+        android:text="Admin Profile"
+        android:textColor="@color/textColor"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/allerta"
+        android:text="Edit Your Profile"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/ideditbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:drawableLeft="@drawable/edit24primary"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/allerta"
+        android:gravity="center_vertical"
+        android:padding="2dp"
+        android:text="Click Here To Edit"
+        android:textAlignment="gravity"
+        android:textColor="@color/primaryColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
         android:orientation="vertical"
-        android:paddingBottom="10dp">
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ideditbtn">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/profileedittextshape"
             android:elevation="2dp"
@@ -162,7 +211,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="6dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/idsaveinfobtn"
@@ -180,4 +231,4 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

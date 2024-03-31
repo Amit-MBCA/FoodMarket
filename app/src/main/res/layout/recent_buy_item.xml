@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white">
-
+    android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:id="@+id/idpopularitemcardview"
         android:layout_width="0dp"
@@ -25,7 +24,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/idpopularfoodimage"
+                android:id="@+id/idfoodimage"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginStart="8dp"
@@ -38,46 +37,53 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/idaddtocardpopular"
-                android:layout_width="80dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/addtocardshape"
-                android:fontFamily="@font/allerta"
-                android:gravity="center"
-                android:text="Add To Cart"
-                android:textAlignment="gravity"
-                android:textColor="@color/white"
-                android:textSize="10sp"
-                app:layout_constraintEnd_toEndOf="@+id/idpopularfoodprice"
-                app:layout_constraintHorizontal_bias="0.49"
-                app:layout_constraintStart_toStartOf="@+id/idpopularfoodprice"
-                app:layout_constraintTop_toBottomOf="@+id/idpopularfoodprice" />
-
-            <TextView
-                android:id="@+id/idpopularfoodprice"
+                android:id="@+id/idfoodprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="40dp"
                 android:fontFamily="@font/allerta"
-                android:text="$5"
+                android:text="230₹"
                 android:textColor="@color/textColor"
                 android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/idpopularfoodname"
+                android:id="@+id/idfoodname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/allerta"
                 android:text="FoodName"
+                android:textColor="@color/primaryColor"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView5"
+                app:layout_constraintStart_toEndOf="@+id/idfoodimage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/allerta"
+                android:text="Quantity:"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/idpopularfoodimage"
-                app:layout_constraintStart_toEndOf="@+id/idpopularfoodimage"
-                app:layout_constraintTop_toTopOf="@+id/idpopularfoodimage" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/idfoodname"
+                app:layout_constraintTop_toBottomOf="@+id/idfoodname" />
+
+            <TextView
+                android:id="@+id/idquantitytv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/allerta"
+                android:text="2"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/textView5" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
