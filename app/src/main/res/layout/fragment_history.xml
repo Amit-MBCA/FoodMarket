@@ -70,8 +70,9 @@
                     android:id="@+id/idbuyagainfoodprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/rupee_textcolor"
                     android:fontFamily="@font/allerta"
-                    android:text="$5"
+                    android:text="230"
                     android:textColor="@color/textColor"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -82,27 +83,44 @@
                     android:id="@+id/idorderstatus"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginEnd="32dp"
-                    app:cardBackgroundColor="#4CAF50"
+                    android:layout_marginTop="4dp"
+                    app:cardBackgroundColor="#B0CDB5"
                     app:cardCornerRadius="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/receivedbtn"
+                    app:layout_constraintEnd_toEndOf="@+id/receivedbtn"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/receivedbtn"
                     app:layout_constraintTop_toTopOf="parent" />
 
-<!--                <androidx.appcompat.widget.AppCompatButton-->
-<!--                    android:id="@+id/idreceivedbtn"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:background="@drawable/addtocardshape"-->
-<!--                    android:fontFamily="@font/allerta"-->
-<!--                    android:text="Received"-->
-<!--                    android:textAllCaps="false"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="@+id/idorderstatus"-->
-<!--                    app:layout_constraintHorizontal_bias="0.5"-->
-<!--                    app:layout_constraintStart_toStartOf="@+id/idorderstatus"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/idorderstatus" />-->
+                <Button
+                    android:id="@+id/receivedbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:backgroundTint="@color/textColor"
+                    android:text="Received"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/idorderstatus"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <!--                <androidx.appcompat.widget.AppCompatButton-->
+                <!--                    android:id="@+id/idreceivedbtn"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="20dp"-->
+                <!--                    android:background="@drawable/addtocardshape"-->
+                <!--                    android:fontFamily="@font/allerta"-->
+                <!--                    android:text="Received"-->
+                <!--                    android:textAllCaps="false"-->
+                <!--                    android:textColor="@color/white"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="@+id/idorderstatus"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.5"-->
+                <!--                    app:layout_constraintStart_toStartOf="@+id/idorderstatus"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/idorderstatus" />-->
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

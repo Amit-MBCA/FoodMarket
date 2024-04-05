@@ -1,6 +1,7 @@
 package ininc.foodmarket.Fragment
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -33,7 +34,7 @@ class HistoryFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
     private lateinit var userId: String
-    private var listOfOrderItems: MutableList<OrderDetails> = mutableListOf()
+    private var listOfOrderItems: ArrayList<OrderDetails> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,14 +56,23 @@ class HistoryFragment : Fragment() {
         binding.idrecentbuyitem.setOnClickListener {
             seeRecentBuyItems()
         }
+        binding.receivedbtn.setOnClickListener {
+            UpdateOrderStatus()
+        }
 //        setUpRecyclerView()
         return binding.root
+    }
+
+    private fun UpdateOrderStatus() {
+        val itemPushKey=listOfOrderItems[0].itemPushKey
+        val completeOrderReference=database.reference.child("CompletedOrder").child(itemPushKey!!)
+        completeOrderReference.child("paymentReceived").setValue(true)
     }
 
     private fun seeRecentBuyItems() {
         listOfOrderItems.firstOrNull()?.let { recentBuy ->
             val intent= Intent(requireContext(),RecentOrderItems::class.java)
-            intent.putExtra("RecentBuyOrderItem",ArrayList(listOfOrderItems))
+            intent.putExtra("RecentBuyOrderItem",listOfOrderItems)
             startActivity(intent)
         }
     }
@@ -90,7 +100,7 @@ class HistoryFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
 
         })
@@ -109,7 +119,11 @@ class HistoryFragment : Fragment() {
                 val imageString = it.foodImages?.firstOrNull() ?: ""
                 val uri = Uri.parse(imageString)
                 Glide.with(requireContext()).load(uri).into(idbuyagainfoodimage)
-
+                val isOrderAccepted=listOfOrderItems[0].orderAccepted
+                if (isOrderAccepted!!){
+                    idorderstatus.background.setTint(Color.GREEN)
+                    receivedbtn.visibility=View.VISIBLE
+                }
                 listOfOrderItems.reverse()
                 if (listOfOrderItems.isNotEmpty()) {
 

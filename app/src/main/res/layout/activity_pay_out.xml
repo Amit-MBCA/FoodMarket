@@ -198,11 +198,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/transparentshape"
+                android:drawableRight="@drawable/rupee_primarycolor"
                 android:editable="false"
                 android:ems="10"
                 android:gravity="end"
                 android:inputType="none"
+                android:paddingTop="5dp"
                 android:paddingEnd="32dp"
+                android:paddingBottom="5dp"
                 android:textColor="@color/primaryColor"
                 android:textSize="20sp" />
         </LinearLayout>
