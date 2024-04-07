@@ -98,7 +98,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/freshlogo64"
-            app:backgroundTint="#03CC0B"
+            android:theme="@style/Base.Theme.FoodMarket"
+            app:backgroundTint="#08E811"
             app:layout_anchor="@id/bottomAppBar" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

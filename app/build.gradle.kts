@@ -61,4 +61,6 @@ dependencies {
 
     implementation ("com.google.android.material:material:1.11.0")
 
+    implementation ("io.github.chaosleung:pinview:1.4.4")
+
 }
