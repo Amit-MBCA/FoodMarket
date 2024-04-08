@@ -90,7 +90,7 @@ class HomeFragment : Fragment(){
     private fun retrieveAndDisplayPopularItems() {
         //get reference to the database
         database=FirebaseDatabase.getInstance()
-        val foodRef:DatabaseReference=database.reference.child("menu")
+        val foodRef:DatabaseReference=database.reference.child("menu").child("general")
         menuItems= mutableListOf()
         //retrieve menu items from the database
         foodRef.addListenerForSingleValueEvent(object:ValueEventListener{
@@ -104,7 +104,7 @@ class HomeFragment : Fragment(){
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
 
         })

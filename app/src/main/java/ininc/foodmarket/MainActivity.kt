@@ -1,5 +1,6 @@
 package ininc.foodmarket
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         binding.notifibtn.setOnClickListener{
             val bottomSheetDialog=Notification_Bottom_Fragment()
             bottomSheetDialog.show(supportFragmentManager,"Test")
+        }
+        binding.fab.setOnClickListener {
+            startActivity(Intent(this@MainActivity,FreshItemsActivity::class.java))
         }
     }
 }

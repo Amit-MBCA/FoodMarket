@@ -48,7 +48,7 @@ class menuBottomSheetFragment : BottomSheetDialogFragment() {
 
     private fun retrieveMenuItems(){
         database=FirebaseDatabase.getInstance()
-        val foodRef:DatabaseReference=database.reference.child("menu")
+        val foodRef:DatabaseReference=database.reference.child("menu").child("general")
         menuItems= mutableListOf()
         foodRef.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {

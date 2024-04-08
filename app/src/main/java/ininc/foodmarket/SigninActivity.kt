@@ -26,12 +26,13 @@ class SigninActivity : AppCompatActivity() {
     private lateinit var password:String
     private lateinit var username:String
     private lateinit var auth: FirebaseAuth
-    private lateinit var database:DatabaseReference
+    private lateinit var database:DatabaseReference  
     private lateinit var googleSignInClient:GoogleSignInClient
 
     private val binding:ActivitySigninBinding by lazy {
         ActivitySigninBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -111,6 +112,6 @@ class SigninActivity : AppCompatActivity() {
         val user=UserModel(username,email,password)
         val userId=FirebaseAuth.getInstance().currentUser!!.uid
         //Save data to firebase database
-        database.child("user").child(userId).setValue(user)
+        database.child("user").child("buyer").child(userId).setValue(user)
     }
 }

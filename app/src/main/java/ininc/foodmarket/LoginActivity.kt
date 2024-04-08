@@ -4,11 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputType
-import android.view.MotionEvent
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -19,7 +16,6 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.database
 import ininc.foodmarket.databinding.ActivityLoginBinding
 import ininc.foodmarket.model.UserModel
@@ -46,44 +42,44 @@ class LoginActivity : AppCompatActivity() {
             val it=Intent(this,SigninActivity::class.java)
             startActivity(it)
         }
-        binding.idpassword.setOnTouchListener { v, event ->
-            if (event.action == MotionEvent.ACTION_UP) {
-                // Calculate the position of right drawable
-                val drawableRightEnd = binding.idpassword.compoundDrawablesRelative[2]?.bounds?.right ?: 0
-                // Check if touch event is within the bounds of the right drawable
-                if (event.rawX >= (drawableRightEnd - binding.idpassword.totalPaddingEnd)
-                    && event.rawX <= (drawableRightEnd)) {
-                    // Toggle password visibility
-                    if (binding.idpassword.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
-                        // Hide the password
-                        binding.idpassword.inputType =
-                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                        binding.idpassword.setSelection(binding.idpassword.text.length)
-                        // Change right drawable to hideicon
-                        binding.idpassword.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                            ContextCompat.getDrawable(this, R.drawable.passicon),
-                            null,
-                            ContextCompat.getDrawable(this, R.drawable.hideicon),
-                            null
-                        )
-                    } else {
-                        // Show the password
-                        binding.idpassword.inputType =
-                            InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                        binding.idpassword.setSelection(binding.idpassword.text.length)
-                        // Change right drawable to showicon
-                        binding.idpassword.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                            ContextCompat.getDrawable(this, R.drawable.passicon),
-                            null,
-                            ContextCompat.getDrawable(this, R.drawable.hideicon),
-                            null
-                        )
-                    }
-                    return@setOnTouchListener true
-                }
-            }
-            return@setOnTouchListener false
-        }
+//        binding.idpassword.setOnTouchListener { v, event ->
+//            if (event.action == MotionEvent.ACTION_UP) {
+//                // Calculate the position of right drawable
+//                val drawableRightEnd = binding.idpassword.compoundDrawablesRelative[2]?.bounds?.right ?: 0
+//                // Check if touch event is within the bounds of the right drawable
+//                if (event.rawX >= (drawableRightEnd - binding.idpassword.totalPaddingEnd)
+//                    && event.rawX <= (drawableRightEnd)) {
+//                    // Toggle password visibility
+//                    if (binding.idpassword.inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+//                        // Hide the password
+//                        binding.idpassword.inputType =
+//                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+//                        binding.idpassword.setSelection(binding.idpassword.text.length)
+//                        // Change right drawable to hideicon
+//                        binding.idpassword.setCompoundDrawablesRelativeWithIntrinsicBounds(
+//                            ContextCompat.getDrawable(this, R.drawable.passicon),
+//                            null,
+//                            ContextCompat.getDrawable(this, R.drawable.hideicon),
+//                            null
+//                        )
+//                    } else {
+//                        // Show the password
+//                        binding.idpassword.inputType =
+//                            InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+//                        binding.idpassword.setSelection(binding.idpassword.text.length)
+//                        // Change right drawable to showicon
+//                        binding.idpassword.setCompoundDrawablesRelativeWithIntrinsicBounds(
+//                            ContextCompat.getDrawable(this, R.drawable.passicon),
+//                            null,
+//                            ContextCompat.getDrawable(this, R.drawable.hideicon),
+//                            null
+//                        )
+//                    }
+//                    return@setOnTouchListener true
+//                }
+//            }
+//            return@setOnTouchListener false
+//        }
         binding.idgooglebtn.setOnClickListener {
             val signInIntent=googleSignInClient.signInIntent
             launcher.launch(signInIntent)
@@ -103,7 +99,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private val launcher=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result->
-        if(result.resultCode== Activity.RESULT_OK){
+        if(result.resultCode == Activity.RESULT_OK){
             val task=GoogleSignIn.getSignedInAccountFromIntent(result.data)
             if(task.isSuccessful){
                 val account: GoogleSignInAccount?=task.result
@@ -155,7 +151,7 @@ class LoginActivity : AppCompatActivity() {
         val user= UserModel(userName,email,password)
         val userId=FirebaseAuth.getInstance().currentUser!!.uid
         //save data into database
-        database.child("user").child(userId).setValue(user)
+        database.child("user").child("buyer").child(userId).setValue(user)
     }
 
     private fun updateUI(user: FirebaseUser?) {

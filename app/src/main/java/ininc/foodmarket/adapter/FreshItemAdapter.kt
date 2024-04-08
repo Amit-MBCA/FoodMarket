@@ -8,40 +8,40 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import ininc.foodmarket.DetailsActivity
+import ininc.foodmarket.R
+import ininc.foodmarket.databinding.FreshItemBinding
+import ininc.foodmarket.databinding.FreshItemBinding.*
 import ininc.foodmarket.databinding.MenuItemBinding
 import ininc.foodmarket.model.MenuItem
 
-class MenuAdapter(private val menuItems:List<MenuItem>,private val requiredContext:Context): RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
-    private lateinit var binding: MenuItemBinding
-    override fun onCreateViewHolder(parent: ViewGroup,viewType:Int):MenuViewHolder{
-        binding=MenuItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+class FreshItemAdapter(private val menuItems:List<MenuItem>, private val requiredContext: Context): RecyclerView.Adapter<FreshItemAdapter.FreshItemViewHolder>() {
+    private lateinit var binding: FreshItemBinding
+    override fun onCreateViewHolder(parent: ViewGroup, viewType:Int):FreshItemViewHolder{
+        binding=FreshItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
 
-        return MenuViewHolder(binding)
+        return FreshItemViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
+
+    override fun onBindViewHolder(holder: FreshItemViewHolder, position: Int) {
         holder.bind(position)
     }
     override fun getItemCount(): Int = menuItems.size
-    inner class MenuViewHolder(private val binding:MenuItemBinding):RecyclerView.ViewHolder(binding.root){
 
+
+    inner class FreshItemViewHolder(private val binding:FreshItemBinding):RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-                val position=adapterPosition
-                if (position!=RecyclerView.NO_POSITION){
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
                     openDetailsActivity(position)
                 }
-//                val intent= Intent(requiredContext,DetailsActivity::class.java)
-//                intent.putExtra("MenuItemName",menuItemsName.get(position))
-//                intent.putExtra("MenuImage",menuImage.get(position))
-//                requiredContext.startActivity(intent)
             }
         }
-
         private fun openDetailsActivity(position: Int) {
             val menuItem=menuItems[position]
             //a intent to open details activity and pass data
-            val intent=Intent(requiredContext,DetailsActivity::class.java).apply {
+            val intent= Intent(requiredContext, DetailsActivity::class.java).apply {
                 putExtra("MenuItemName",menuItem.foodName)
                 putExtra("MenuItemImage",menuItem.foodImage)
                 putExtra("MenuItemPrice",menuItem.foodPrice)
@@ -50,19 +50,15 @@ class MenuAdapter(private val menuItems:List<MenuItem>,private val requiredConte
             }
             requiredContext.startActivity(intent)
         }
-
         fun bind(position: Int) {
             val menuItem=menuItems[position]
             binding.apply {
-                idmenufoodname.text=menuItem.foodName
-                idmenuprice.text=menuItem.foodPrice
-                val imgString=menuItem.foodImage
+                idpopularfoodname.text=menuItem.foodName
+                idpopularfoodprice.text=menuItem.foodPrice
+                val imgString=menuItem?.foodImage
                 val uri= Uri.parse(imgString)
-                Glide.with(requiredContext).load(uri).into(idmenuimage)
+                Glide.with(requiredContext).load(uri).into(idpopularfoodimage)
             }
         }
-
     }
 }
-
-
