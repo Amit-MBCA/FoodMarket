@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import ininc.foodmarket.Fragment.CartFragment
+import ininc.foodmarket.Fragment.HomeFragment
 import ininc.foodmarket.databinding.ActivityDetailsBinding
 import ininc.foodmarket.model.CartItems
 
@@ -61,10 +63,13 @@ class DetailsActivity : AppCompatActivity() {
         //Create a cart item object
         val cartItem=CartItems(foodName.toString(),foodPrice.toString(),foodDesc.toString(),foodImage.toString(),1)
         //save data to cart items to database
-        database.child("user").child(userId).child("CartItems").push().setValue(cartItem).addOnSuccessListener {
-            Toast.makeText(this,"Item added to cart successfully",Toast.LENGTH_SHORT).show()
+        database.child("user").child("buyer").child("CartItems").child(userId).push().setValue(cartItem).addOnSuccessListener {
+            Toast.makeText(this,"Item Added To Cart",Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(this,"Failed to adding cart item",Toast.LENGTH_SHORT).show()
         }
+        val intent=Intent(this@DetailsActivity,MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

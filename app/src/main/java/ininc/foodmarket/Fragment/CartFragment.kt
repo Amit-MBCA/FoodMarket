@@ -2,6 +2,7 @@ package ininc.foodmarket.Fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +30,7 @@ class CartFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var foodNames:MutableList<String>
     private lateinit var foodPrices:MutableList<String>
-    private lateinit var foodDesc:MutableList<String>
+    private lateinit var foodDescs:MutableList<String>
     private lateinit var foodImagesUri:MutableList<String>
     private lateinit var foodIngredients:MutableList<String>
     private lateinit var quantity:MutableList<Int>
@@ -68,12 +69,12 @@ class CartFragment : Fragment() {
     }
 
     private fun getOrderItemsDetail() {
-        val orderIdReference:DatabaseReference=database.reference.child("user").child(userId).child("CartItems")
+        val orderIdReference:DatabaseReference=database.reference.child("user").child("buyer").child(userId).child("CartItems")
         val foodName= mutableListOf<String>()
         val foodPrice= mutableListOf<String>()
         val foodImage= mutableListOf<String>()
         val foodDesc= mutableListOf<String>()
-        val foodIngredients= mutableListOf<String>()
+        val foodIngredient= mutableListOf<String>()
         //get items quantity
         val foodQuantities=cartAdapter.getUpdatedItemsQuantities()
 
@@ -86,9 +87,9 @@ class CartFragment : Fragment() {
                     orderItems?.foodPrice?.let { foodPrice.add(it) }
                     orderItems?.foodImage?.let { foodImage.add(it) }
                     orderItems?.foodDesc?.let { foodDesc.add(it) }
-                    orderItems?.foodIngredients?.let { foodIngredients.add(it) }
+                    orderItems?.foodIngredients?.let { foodIngredient.add(it) }
                 }
-                orderNow(foodName,foodPrice,foodDesc,foodImage,foodIngredients,foodQuantities)
+                orderNow(foodNames,foodPrices,foodDescs, foodImagesUri, foodIngredients, quantity)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -109,6 +110,7 @@ class CartFragment : Fragment() {
             intent.putExtra("FoodItemImage",foodImage as ArrayList<String>)
             intent.putExtra("FoodItemIngredients",foodIngredients as ArrayList<String>)
             intent.putExtra("FoodItemQuantities",foodQuantities as ArrayList<Int>)
+            Log.d("check","FoodPrice: ${foodPrice},${foodName}")
             startActivity(intent)
         }
     }
@@ -117,12 +119,12 @@ class CartFragment : Fragment() {
         //database reference to the database
         database=FirebaseDatabase.getInstance()
         userId=auth.currentUser?.uid?:""
-        val foodReference:DatabaseReference=database.reference.child("user").child(userId).child("CartItems")
+        val foodReference:DatabaseReference=database.reference.child("user").child("buyer").child("CartItems").child(userId)
         //list to store cart items
         foodNames= mutableListOf()
         foodPrices= mutableListOf()
         foodImagesUri= mutableListOf()
-        foodDesc= mutableListOf()
+        foodDescs= mutableListOf()
         foodIngredients= mutableListOf()
         quantity= mutableListOf()
 
@@ -135,7 +137,7 @@ class CartFragment : Fragment() {
                     //add cart items details to the list
                     cartItems?.foodName?.let { foodNames.add(it) }
                     cartItems?.foodPrice?.let { foodPrices.add(it) }
-                    cartItems?.foodDesc?.let { foodDesc.add(it) }
+                    cartItems?.foodDesc?.let { foodDescs.add(it) }
                     cartItems?.foodImage?.let { foodImagesUri.add(it) }
                     cartItems?.foodQuantity?.let { quantity.add(it) }
                     cartItems?.foodIngredients?.let { foodIngredients.add(it) }
@@ -151,7 +153,7 @@ class CartFragment : Fragment() {
     }
 
     private fun setAdapter() {
-        cartAdapter=CartAdapter(requireContext(),foodNames,foodPrices,foodImagesUri,foodDesc,quantity,foodIngredients)
+        cartAdapter=CartAdapter(requireContext(),foodNames,foodPrices,foodImagesUri,foodDescs,quantity,foodIngredients)
         binding.idcartrecyclerview.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         binding.idcartrecyclerview.adapter=cartAdapter
     }

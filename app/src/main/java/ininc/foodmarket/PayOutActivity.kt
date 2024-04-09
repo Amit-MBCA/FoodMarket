@@ -15,7 +15,9 @@ import ininc.foodmarket.databinding.ActivityPayOutBinding
 import ininc.foodmarket.model.OrderDetails
 
 class PayOutActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityPayOutBinding
+    private val binding:ActivityPayOutBinding by lazy{
+        ActivityPayOutBinding.inflate(layoutInflater)
+    }
 
     private lateinit var auth:FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
@@ -32,9 +34,6 @@ class PayOutActivity : AppCompatActivity() {
     private lateinit var userId:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        binding=ActivityPayOutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         auth=FirebaseAuth.getInstance()
@@ -95,14 +94,15 @@ class PayOutActivity : AppCompatActivity() {
     }
 
     private fun addOrderToHistory(orderDetails: OrderDetails) {
-        databaseReference.child("user").child(userId).child("BuyHistory").child(orderDetails.itemPushKey!!)
+        databaseReference.child("user").child("BuyHistory").child(orderDetails.itemPushKey!!)
             .setValue(orderDetails).addOnSuccessListener {
 
             }
     }
 
     private fun removeItemFromCart() {
-        val cartItemReference=databaseReference.child("user").child(userId).child("CartItems")
+        userId=auth.currentUser?.uid?:""
+        val cartItemReference=databaseReference.child("user").child("buyer").child("CartItems")
         cartItemReference.removeValue()
     }
 

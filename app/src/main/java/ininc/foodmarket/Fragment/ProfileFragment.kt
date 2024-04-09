@@ -64,7 +64,7 @@ class ProfileFragment : Fragment() {
     private fun updateUserData(name: String, email: String, address: String, phone: String) {
         val userId=auth.currentUser?.uid
         if(userId!=null){
-            val userReference=database.getReference("user").child(userId)
+            val userReference=database.getReference("user").child("buyer").child(userId)
 
             val userData= hashMapOf("name" to name,"email" to email,"address" to address,"phone" to phone)
             userReference.setValue(userData).addOnSuccessListener {
@@ -80,7 +80,7 @@ class ProfileFragment : Fragment() {
     private fun setUserData() {
         val userId=auth.currentUser?.uid
         if(userId!=null){
-            val userReference=database.getReference("user").child(userId)
+            val userReference=database.getReference("user").child("buyer").child(userId)
 
             userReference.addListenerForSingleValueEvent(object: ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -96,7 +96,7 @@ class ProfileFragment : Fragment() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+
                 }
 
             })

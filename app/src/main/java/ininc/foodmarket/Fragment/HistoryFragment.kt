@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -67,6 +68,8 @@ class HistoryFragment : Fragment() {
         val itemPushKey=listOfOrderItems[0].itemPushKey
         val completeOrderReference=database.reference.child("CompletedOrder").child(itemPushKey!!)
         completeOrderReference.child("paymentReceived").setValue(true)
+        binding.idorderstatus.background.setTint(Color.GREEN)
+        binding.receivedbtn.visibility = View.INVISIBLE
     }
 
     private fun seeRecentBuyItems() {
@@ -82,7 +85,7 @@ class HistoryFragment : Fragment() {
         binding.idrecentbuytv.isVisible = false
         userId = auth.currentUser?.uid ?: ""
         val buyItemReference: DatabaseReference =
-            database.reference.child("user").child(userId).child("BuyHistory")
+            database.reference.child("user").child("BuyHistory")
         val sortingQuery: Query = buyItemReference.orderByChild("currentTime")
         sortingQuery.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -120,13 +123,14 @@ class HistoryFragment : Fragment() {
                 val uri = Uri.parse(imageString)
                 Glide.with(requireContext()).load(uri).into(idbuyagainfoodimage)
                 val isOrderAccepted=listOfOrderItems[0].orderAccepted
-                if (isOrderAccepted!!){
-                    idorderstatus.background.setTint(Color.GREEN)
+                Log.d("order","accepted: $isOrderAccepted")
+//                if (isOrderAccepted!!){
+//                    idorderstatus.background.setTint(Color.GREEN)
                     receivedbtn.visibility=View.VISIBLE
-                }
-                listOfOrderItems.reverse()
-                if (listOfOrderItems.isNotEmpty()) {
+//                }
 
+                if (listOfOrderItems.isNotEmpty()) {
+                    listOfOrderItems.reverse()
                 }
             }
         }
